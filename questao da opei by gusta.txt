@@ -1,0 +1,27 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int m = scan.nextInt();
+
+        int indc = 0;
+        int faster = 0;
+        int somaT = 0;
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                somaT += scan.nextInt();
+            }
+            if(somaT < faster || faster == 0){
+                faster = somaT;
+                indc = i;
+            }
+            somaT = 0;
+        }
+        System.out.println(indc + 1);
+    }
+}
