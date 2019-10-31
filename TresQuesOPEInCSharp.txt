@@ -1,0 +1,85 @@
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace ExerciciosOPEI
+{
+    class Program
+    {
+        static void Fibonacci(){
+            //Fibonacci
+            int f3 = 0;
+            int f1 = 0;
+            int f2 = 1;
+
+            int n = int.Parse(Console.ReadLine());
+
+            if (n == 1)
+                f3 = 0;
+            else if (n == 2)
+                f3 = 1;
+            else{
+                for (int i = 2; i < n; i++){  
+                    f3 = f1 + f2;
+                    f1 = f2;
+                    f2 = f3;
+                }
+            }
+            Console.WriteLine(f3);
+        }
+
+        static void Maneiro(){
+            int c = 0;
+
+            string palavra = Console.ReadLine();
+            char[] palavras = palavra.ToCharArray();
+            //string[] palavras = palavra.Select(x => new string(x, 1)).ToArray();
+            //string[] palavras = palavra.Select(x => x.ToString()).ToArray();
+            //string[] palavras = Regex.Split(palavra, string.Empty);
+            for(int i = 0; i < palavras.Length; i++)
+            {
+                for (int j = 0; j < palavras.Length; j++)
+                {
+                    if(palavras[i] == palavras[j] && i != j)
+                        c++;
+                }
+            }
+            if (c > 0)
+                System.Console.WriteLine("Não Maneiro");
+            else System.Console.WriteLine("Maneiro");
+            
+        }
+
+        static string Tempo(){
+            int t = int.Parse(Console.ReadLine());
+
+            if(t < -20 && t >= -60)
+                return "Muito Frio";
+            else if(t < -10 && t >= -20)
+                return "Bastante Frio";
+            else if(t < 10 && t >= -10)
+                return "Frio";
+            else if(t < 20 && t >= 10)
+                return "Morno";
+            else
+                return "DESCONHECIDO";
+        }
+        static void Ovos(){
+            int count = 0;
+            int n = int.Parse(Console.ReadLine());
+            int k = int.Parse(Console.ReadLine());
+            int n1 = n;
+
+            while(n - k > 0){
+                n = n - k;
+                count++;
+                n++;
+            }
+            Console.WriteLine(count + n1);
+        }
+        static void Main(string[] args)
+        {
+
+        }
+    }
+}
